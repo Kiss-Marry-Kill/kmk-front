@@ -1,20 +1,23 @@
 import { FC } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 import getRoute from "../../functions/getRoute";
 
 export interface INavbarRouter {}
 
 const NavbarRouter: FC<INavbarRouter> = () => {
     return (
-        <Switch>
-            <Route exact path={getRoute("root")}>
-                <Redirect to={getRoute("game")} />
-            </Route>
-            <Route path={getRoute("game")}></Route>
-            <Route path={getRoute("dashboard")}></Route>
-            <Route path={getRoute("faq")}></Route>
-            <Route path={getRoute("noMatch")}></Route>
-        </Switch>
+        <>
+            <Navbar />
+            <Switch>
+                <Route exact path={getRoute("root")}>
+                    <Redirect to={getRoute("game")} />
+                </Route>
+                <Route path={getRoute("game")}></Route>
+                <Route path={getRoute("dashboard")}></Route>
+                <Route path={getRoute("faq")}></Route>
+            </Switch>
+        </>
     );
 };
 
