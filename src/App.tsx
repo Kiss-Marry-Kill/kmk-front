@@ -1,5 +1,7 @@
+import NavbarRouter from "./routers/NavbarRouter";
+
 function App() {
-    return <></>;
+    return <NavbarRouter />;
 }
 
 export default App;
