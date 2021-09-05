@@ -7,7 +7,7 @@ export interface IImageCard {
 const ImageCard: FC<IImageCard> = ({ link }) => {
     return (
         <div className="flex items-center justify-center">
-            <div className="max-w-md bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg ">
+            <div className="max-w-md bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg hover:scale-110 transform transition-all duration-300">
                 <div className="p-4">
                     <img className="rounded-xl" src={link} alt="person" />
                 </div>
