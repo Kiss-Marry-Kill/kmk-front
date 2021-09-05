@@ -11,7 +11,7 @@ interface IImage {
     link: string;
 }
 
-const getImages = (): IImage[] => {
+const getGameImages = (): IImage[] => {
     const images = [
         {
             key: 1,
@@ -34,7 +34,7 @@ const GamePage: FC<IGamePage> = () => {
     const [images, setImages] = useState<IImage[] | []>([]);
 
     useEffect(() => {
-        setImages(getImages());
+        setImages(getGameImages());
     }, []);
 
     return (
