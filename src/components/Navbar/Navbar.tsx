@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import getRoute from "../../functions/getRoute";
 import getText from "../../functions/getText";
 import Icon from "../Icon/Icon";
-import Logo from "../Logo/Logo";
 
 export interface INavbar {}
 
@@ -11,8 +10,12 @@ const Navbar: FC<INavbar> = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="lg:px-24 px-6 bg-white flex flex-wrap items-center justify-between lg:py-2 py-2 fixed w-screen z-10 shadow-lg">
-            <Logo className="flex space-x-3" width="42px" height="42px" />
+        <header className="lg:px-28 px-6 bg-white flex flex-wrap items-center justify-between lg:py-2 py-2 fixed w-screen z-10 shadow-lg">
+            <div className="flex    ">
+                <p className="text-red-700 text-3xl">Kiss</p>
+                <p className="text-yellow-400 text-3xl">Marry</p>
+                <p className="text-gray-500 text-3xl">Kill</p>
+            </div>
             <label
                 htmlFor="menu-toggle"
                 className="pointer-cursor lg:hidden block"
