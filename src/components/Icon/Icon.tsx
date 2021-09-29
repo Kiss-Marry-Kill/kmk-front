@@ -4,6 +4,7 @@ import Rings from "./Rings";
 import Gun from "./Gun";
 import Dashboard from "./Dashboard";
 import FAQ from "./FAQ";
+import Menu from "./Menu";
 
 export interface IIcon {
     name: string;
@@ -22,6 +23,7 @@ const Icon: FC<IIcon> = ({ name, ...props }) => {
         gun: <Gun {...props} />,
         dashboard: <Dashboard {...props} />,
         faq: <FAQ {...props} />,
+        menu: <Menu {...props} />,
     };
 
     return icons[name] || null;

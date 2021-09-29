@@ -8,11 +8,29 @@ export interface ILogo {
 }
 
 const Logo: FC<ILogo> = ({ className, width, height }) => {
-    const iconsNames: string[] = ["kiss", "rings", "gun"];
+    const iconsNames: { key: number; name: string }[] = [
+        {
+            key: 1,
+            name: "kiss",
+        },
+        {
+            key: 2,
+            name: "rings",
+        },
+        {
+            key: 3,
+            name: "gun",
+        },
+    ];
     return (
         <div className={className}>
             {iconsNames.map((iN) => (
-                <Icon name={iN} width={width} height={height} />
+                <Icon
+                    key={iN.key}
+                    name={iN.name}
+                    width={width}
+                    height={height}
+                />
             ))}
         </div>
     );
