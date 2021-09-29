@@ -39,12 +39,16 @@ const DashboardPage: FC<IDashboardPage> = () => {
         setImages(getDashboardImages());
     }, []);
 
+    const onClick = () => {
+        console.log("Clicked");
+    };
+
     return (
         <div className="flex min-h-screen justify-around items-center">
             {images.map((image) => {
                 return (
                     <div key={image.key}>
-                        <ImageCard link={image.link} />
+                        <ImageCard onClick={onClick} link={image.link} />
                         <div className="flex justify-center mt-6">
                             <Icon
                                 name={image.iconName}

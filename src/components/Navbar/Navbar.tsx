@@ -12,7 +12,7 @@ const Navbar: FC<INavbar> = () => {
     return (
         <header className="lg:px-28 px-6 bg-white flex flex-wrap items-center justify-between lg:py-2 py-2 fixed w-screen z-10 shadow-lg">
             <div className="flex space-x-2">
-                <p className="text-blue-700 text-3xl">F</p>
+                <p className="text-blue-700 text-3xl">K</p>
                 <p className="text-yellow-400 text-3xl">M</p>
                 <p className="text-red-700 text-3xl">K</p>
             </div>

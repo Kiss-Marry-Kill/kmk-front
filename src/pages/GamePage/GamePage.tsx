@@ -4,52 +4,14 @@ import { FC } from "react";
 import Button from "../../components/Button/Button";
 import ImageCard from "../../components/ImageCard/ImageCard";
 import getText from "../../functions/getText";
+import {
+    chooseCategoryColor,
+    chooseCategoryText,
+    getGameImages,
+} from "./functions";
+import { IImage } from "./interfaces";
 
 export interface IGamePage {}
-
-interface IImage {
-    key: number;
-    link: string;
-}
-
-const getGameImages = (): IImage[] => {
-    const images = [
-        {
-            key: 1,
-            link: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU2JRbbl3LBOm_an3eI5iplFhOoLESyBwUfmWDO49BS1EYuGUE",
-        },
-        {
-            key: 2,
-            link: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU2JRbbl3LBOm_an3eI5iplFhOoLESyBwUfmWDO49BS1EYuGUE",
-        },
-        {
-            key: 3,
-            link: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU2JRbbl3LBOm_an3eI5iplFhOoLESyBwUfmWDO49BS1EYuGUE",
-        },
-    ];
-
-    return images;
-};
-
-const chooseCategoryText = (categories: number): string => {
-    const category: { [key: number]: {} } = {
-        0: getText("gamePage.kiss"),
-        1: getText("gamePage.marry"),
-        2: getText("gamePage.kill"),
-    };
-
-    return category[categories].toString();
-};
-
-const chooseCategoryColor = (categories: number): string => {
-    const category: { [key: number]: {} } = {
-        0: "text-red-700",
-        1: "text-red-700",
-        2: "text-red-700",
-    };
-
-    return category[categories].toString();
-};
 
 const GamePage: FC<IGamePage> = () => {
     const [images, setImages] = useState<IImage[] | []>([]);
@@ -59,11 +21,23 @@ const GamePage: FC<IGamePage> = () => {
         setImages(getGameImages());
     }, []);
 
+    const onClick = () => {
+        setCategories((prev) => {
+            return prev === 2 ? 0 : prev + 1;
+        });
+    };
+
     return (
         <div className="flex flex-col min-h-screen justify-center">
             <div className="flex justify-around items-center mb-16">
                 {images.map((image) => {
-                    return <ImageCard key={image.key} link={image.link} />;
+                    return (
+                        <ImageCard
+                            onClick={onClick}
+                            key={image.key}
+                            link={image.link}
+                        />
+                    );
                 })}
             </div>
             <div className="flex flex-col space-y-4">
@@ -75,7 +49,7 @@ const GamePage: FC<IGamePage> = () => {
                     ?
                 </p>
 
-                <Button>
+                <Button onClick={() => setCategories(0)}>
                     <p className="text-2xl">{getText("gamePage.reset")}</p>
                 </Button>
             </div>
