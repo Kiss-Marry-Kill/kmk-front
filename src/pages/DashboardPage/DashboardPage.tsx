@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import Icon from "../../components/Icon/Icon";
 import ImageCard from "../../components/ImageCard/ImageCard";
+import getText from "../../functions/getText";
+import { chooseCategoryColor, chooseCategoryText } from "../GamePage/functions";
 
 export interface IDashboardPage {}
 
@@ -13,17 +15,17 @@ interface IImage {
 const getDashboardImages = (): IImage[] => {
     const images = [
         {
-            key: 1,
+            key: 0,
             link: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU2JRbbl3LBOm_an3eI5iplFhOoLESyBwUfmWDO49BS1EYuGUE",
             iconName: "kiss",
         },
         {
-            key: 2,
+            key: 1,
             link: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU2JRbbl3LBOm_an3eI5iplFhOoLESyBwUfmWDO49BS1EYuGUE",
             iconName: "rings",
         },
         {
-            key: 3,
+            key: 2,
             link: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU2JRbbl3LBOm_an3eI5iplFhOoLESyBwUfmWDO49BS1EYuGUE",
             iconName: "gun",
         },
@@ -49,13 +51,22 @@ const DashboardPage: FC<IDashboardPage> = () => {
                 return (
                     <div key={image.key}>
                         <ImageCard onClick={onClick} link={image.link} />
-                        <div className="flex justify-center mt-6">
-                            <Icon
-                                name={image.iconName}
-                                width="90px"
-                                height="90px"
-                            />
-                        </div>
+                        <p className="text-5xl relative text-center mt-8">
+                            <span className={chooseCategoryColor(image.key)}>
+                                {getText(
+                                    "gamePage." + chooseCategoryText(image.key)
+                                )
+                                    .toString()
+                                    .charAt(0)
+                                    .toUpperCase() +
+                                    getText(
+                                        "gamePage." +
+                                            chooseCategoryText(image.key)
+                                    )
+                                        .toString()
+                                        .slice(1)}
+                            </span>
+                        </p>
                     </div>
                 );
             })}
