@@ -8,12 +8,12 @@ export interface IImageCard {
     onClick: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const handleClick = () => {
-    
-}
+// const handleClick = () => {
+
+// }
 
 const ImageCard: FC<IImageCard> = ({ link, onClick }) => {
-    const [borderColor, setBorderColor] = useState<string>("bg-white");
+    const [borderColor] = useState<string>("bg-white");
     const borderClassName =
         "max-w-md " +
         borderColor +

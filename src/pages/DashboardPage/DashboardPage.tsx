@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import Icon from "../../components/Icon/Icon";
 import ImageCard from "../../components/ImageCard/ImageCard";
 import getText from "../../functions/getText";
 import { chooseCategoryColor, chooseCategoryText } from "../GamePage/functions";
